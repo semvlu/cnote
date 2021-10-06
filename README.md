@@ -1,3 +1,5 @@
 # cnote
-W1: Input, print, operator\n
+W1: Input, print, operator
+
+
 W2: If, else
