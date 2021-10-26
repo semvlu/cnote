@@ -8,4 +8,4 @@ W3: While, for, switch
 
 W4: Array
 
-W5: FUnction
+W5: Function
