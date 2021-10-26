@@ -7,3 +7,5 @@ W2: If, else
 W3: While, for, switch
 
 W4: Array
+
+W5: FUnction
