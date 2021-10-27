@@ -7,28 +7,28 @@ int main()
     (ttl i) = (ttl! / i! (ttl - i)!)
     var: i, p, ttl
     */
-    int i, ttl;
-    float p;
+    long double i, ttl; 
+    long double p;
     printf("Enter pkt sw maximum capacity, total users, and percentage: ");
-    scanf("%d %d %f", &i, &ttl, &p);
+    scanf("%Lf %Lf %Lf", &i, &ttl, &p);
 
     // ttl!
-    int a;
-    long int ttlf = 1; 
+    double a;
+    long double ttlf = 1; 
     for (a = 1; a <= ttl; a++)
     {
         ttlf =  ttlf * a;
     }
 
     // matrix nested loop ≡ Σ
-    double pmf, sumpmf;
-    int n = i, ttli;
-    long int c;
+    long double pmf, sumpmf;
+    long double n = i, ttli;
+    long double c;
     for (i = n; i <= ttl; i++)
     {
         // i!
-        int b;
-        long int ifa = 1; 
+        long double b;
+        long double ifa = 1;
         for (b = 1; b <= i; b++)
         {
             ifa =  ifa * b;
@@ -36,18 +36,18 @@ int main()
 
         // (ttl- i)!
         ttli = ttl - i;
-        int d;
-        long int ttlif = 1; 
+        long double d;
+        long double ttlif = 1;
         for (d = 1; d <= ttli; d++)
         {
             ttlif =  ttlif * d;
         }
 
-        c  = (long int) ttlf / (ifa * ttlif); // c = (ttl i) = (ttl! / i! (ttl - i)!)
-        pmf = (double) c * pow(p, (double)i) * pow(1.0 - p, (double)(ttl - i));
+        c  = (long double) ttlf / (ifa * ttlif); // c = (ttl i) = (ttl! / i! (ttl - i)!)
+        pmf = (long double) c * pow(p, (long double) i) * pow(1.0 - p, (long double)(ttl - i));
         sumpmf = sumpmf + pmf;
     }
-    printf("The probability mass is %lf.\n", sumpmf);
+    printf("The probability mass is %Lf.\n", sumpmf);
 
     return 0;
 }
