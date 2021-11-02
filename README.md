@@ -9,3 +9,5 @@ W3: While, for, switch
 W4: Array
 
 W5: Function
+
+W6: Function
