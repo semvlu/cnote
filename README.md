@@ -11,3 +11,5 @@ W4: Array
 W5: Function
 
 W6: Function
+
+W7: Random num, function
