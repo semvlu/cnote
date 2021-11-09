@@ -2,7 +2,7 @@
 #include <stdlib.h>
 enum Status {CONTINUE, WON, LOST};
 int roll();
-//keep running, non stop
+
 int main()
 {
     srand(48763);
