@@ -16,14 +16,12 @@ int main()
 
 int isPrime(int a, int cntr)
 {
-    int f = 1;
     if (a % cntr == 0 && cntr < a)
     {
-        f = 0;
         return 0;
     }
 
-    else if (f == 1 && cntr < a)
+    else if (cntr < a)
     {
         cntr++;
         return isPrime(a, cntr);
