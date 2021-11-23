@@ -4,7 +4,7 @@ int main()
 	srand(4823);
 	int b, s;
 	scanf("%d %d", &b, &s);
-	int slot[s] = {0}; // ball counter
+	int slot[s] = {0}; // ball counter, error here
 	int dir = 0;
 	int i, j;
 	int rgen; // 0 = L, 1 = R
