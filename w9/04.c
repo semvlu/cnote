@@ -1,5 +1,6 @@
 #include <stdio.h>
-// only g[1][1] & g[2][2] are right 
+#include <string.h>
+// run on local gets right, but WA on OJ
 int main()
 {
 	int a,b,c,d;
@@ -7,6 +8,7 @@ int main()
 	int e[a][b];
 	int f[c][d];
 	int g[a][d];
+	memset( g, 0, a * d * sizeof(int));
 	int i,j,k,l,m,n,o,p,q,r;
 	
 	for(i = 0; i < a; i++)
