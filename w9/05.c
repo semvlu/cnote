@@ -32,21 +32,13 @@ int main()
 		dir = 0;
 		printf("\n");
 	}
-
-	// det max, and print (max) lines
-	int max = 0;
+	
+	int max = slot[0];
 	for (i = 0; i < s; i++)
-	{
-		if (slot[i+1] >= slot[i])
-		{
-			max = slot[i+1];
-		}
-		else
-		{
-			max = slot[i];
-		}
-	}
-	//maximum slot: 10
+    {
+        if (max < slot[i]) 
+            max = slot[i]; 
+    }
 	int max1 = max;
 	for (i = 0; i < max; i++)
 	{
@@ -60,9 +52,9 @@ int main()
 			{
 				printf(" ");
 			}	
-			
+				
 		}	
-		max1--;		
+		max1--;			
 		printf("\n");
 	}
 }
