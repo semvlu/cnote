@@ -34,7 +34,7 @@ int main()
 	}
 	
 	int max = slot[0];
-	for (i = 0; i < s; i++)
+	for (i = 1; i < s; i++)
     {
         if (max < slot[i]) 
             max = slot[i]; 

@@ -40,7 +40,13 @@ int main()
 	{
 		for(r = 0; r < d; r++)
 		{
-			printf("%d ", g[q][r]);
+			if (r == d-1)
+			{
+				printf("%d", g[q][r]);
+			}
+			else
+				printf("%d ", g[q][r]);
+
 		}
 		printf("\n");
 	}
