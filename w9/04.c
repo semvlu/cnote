@@ -36,7 +36,6 @@ int main()
 			}	
 		}
 	}
-	
 	for(q = 0; q < a; q++)
 	{
 		for(r = 0; r < d; r++)

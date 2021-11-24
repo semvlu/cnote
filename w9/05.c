@@ -34,21 +34,25 @@ int main()
 	}
 
 	// det max, and print (max) lines
-	int max  = slot[0];
+	int max = 0;
 	for (i = 0; i < s; i++)
 	{
-		if (slot[i+1] > slot[i])
+		if (slot[i+1] >= slot[i])
 		{
 			max = slot[i+1];
+		}
+		else
+		{
+			max = slot[i];
 		}
 	}
 	//maximum slot: 10
 	int max1 = max;
 	for (i = 0; i < max; i++)
 	{
-		for (j = 0; j < s; j--)
-		{
-			if (slot[j] == max1)
+		for (j = 0; j < s; j++)
+		{	
+			if (slot[j] >= max1)
 			{
 				printf("%s", "o");
 			}
@@ -56,8 +60,8 @@ int main()
 			{
 				printf(" ");
 			}	
-			max1--;
-		}				
+			max1--;		
+		}			
 		printf("\n");
 	}
 }
