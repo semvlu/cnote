@@ -3,12 +3,13 @@
 #include <time.h>
 int main()
 {
+	srand(4875);
 	int a[5][5];
 	int i,j,m,n;
 	int cntrrow[5] = {0};
-	int maxrow;
+	int maxrow = 0;
 	int cntrclmn[5] = {0};
-	int maxclmn;
+	int maxclmn = 0;
 	
 	for(i = 0; i < 5; i++)
 	{
