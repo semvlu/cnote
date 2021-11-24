@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// print wrong max row, column
 int main()
 {
 	int a[5][5];
@@ -35,13 +34,12 @@ int main()
 			cntrrow[i] += a[i][j];
 		}
 	}
-	maxrow = cntrrow[0];
 	
-	for(i =0; i < 4; i++)
+	for(i = 0; i < 4; i++)
 	{
 		if(cntrrow[i + 1] > cntrrow[i])
 		{
-			maxrow = cntrrow[i + 1];
+			maxrow = i + 1;
 		}
 	}
 	
@@ -52,14 +50,13 @@ int main()
 			cntrclmn[i] += a[j][i];
 		}
 	}
-	maxclmn = cntrclmn[0];
 	
 	for(i =0; i < 4; i++)
 	{
 		if(cntrclmn[i + 1] > cntrclmn[i])
 		{
-			maxclmn = cntrclmn[i + 1];
+			maxclmn = i + 1;
 		}
 	}
-	printf("%d %d", maxrow, maxclmn);
+	printf("%d %d", maxrow, maxclmn);	
 }
