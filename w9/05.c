@@ -60,8 +60,9 @@ int main()
 			{
 				printf(" ");
 			}	
-			max1--;		
-		}			
+			
+		}	
+		max1--;		
 		printf("\n");
 	}
 }
