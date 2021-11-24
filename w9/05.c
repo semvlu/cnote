@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// how to print the balls correctly
+// run on local prints right result, but WA on OJ
 int main()
 {
 	srand(4823);	
