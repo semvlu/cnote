@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-// run on local gets right, but WA on OJ
 int main()
 {
 	int a,b,c,d;
