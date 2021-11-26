@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// run on local prints right result, but WA on OJ
 int main()
 {
 	srand(4823);	
@@ -15,7 +14,7 @@ int main()
 	
 	for(i = 0; i < b; i++) // ball
 	{
-		for(j = 0; j < 7; j++) // path
+		for(j = 0; j < s-1; j++) // path
 		{
 			rgen = (rand() % 2);
 			if(rgen == 0)
