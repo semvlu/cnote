@@ -6,7 +6,7 @@ int biSearch(int a[], int lo, int hi, int x);
 int main()
 {
     int a[SIZE] = {3,6,9,12,15};
-    int res = binarySearch(a, 0, 15, 3);
+    int res = biSearch(a, 0, 15, 3);
     if (res != -1)
     {
         printf("%d is found in the %dth elem.\n", a[res], res);
@@ -31,10 +31,10 @@ int biSearchRecur(int a[], int lo, int hi, int x)
  
         else if(a[mid] > x)
         {
-            return binarySearch(a, lo, mid - 1, x);
+            return biSearchRecur(a, lo, mid - 1, x);
         }
         else
-            return binarySearch(a, mid + 1, hi, x);
+            return biSearchRecur(a, mid + 1, hi, x);
     }
     return -1;
 }
