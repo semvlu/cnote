@@ -22,15 +22,19 @@ int biSearchRecur(int a[], int lo, int hi, int x)
 {
     if (hi >= lo)
     {
-        int mid = lo + (hi - lo) / 2;
+        int mid = (hi + lo) / 2;
 
-        if (a[mid] == x)
+        if(a[mid] == x)
+        {
             return mid;
+        }
  
-        if (a[mid] > x)
+        else if(a[mid] > x)
+        {
             return binarySearch(a, lo, mid - 1, x);
- 
-        return binarySearch(a, mid + 1, hi, x);
+        }
+        else
+            return binarySearch(a, mid + 1, hi, x);
     }
     return -1;
 }
@@ -40,14 +44,17 @@ int biSearch(int a[], int lo, int hi, int x)
     while(hi >= lo)
     {
         int mid = (hi + lo) / 2;
+        
         if(a[mid] == x)
         {
             return mid;
         }
+        
         else if(a[mid] > x)
         {
             hi = mid -1;
         }
+        
         else
         {
             lo = mid + 1;
@@ -55,5 +62,3 @@ int biSearch(int a[], int lo, int hi, int x)
     }
     return -1;
 }
-            
-
