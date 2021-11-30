@@ -17,3 +17,5 @@ W7: Random num, function
 W8: Function
 
 W9: Array
+
+W10: Game design
