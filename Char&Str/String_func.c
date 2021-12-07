@@ -28,4 +28,11 @@ int main()
         tokenPtr = strtok(NULL, " ");
     }
     
+    char s1[21];
+    char s2[] = "This is to be copied";
+    memcpy(s1,s2,21);
+    printf("%s\n", s1);
+    memset(s1, 's', 6);
+    printf("%s %d\n", s1, strlen(s1));
+    printf("%s", strerror(1));
 }
