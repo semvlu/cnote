@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+// i know pblm at line 23, but how to fix it w/ proper var to add?
 int main()
 {
     char a[200];
