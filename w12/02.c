@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-int testPalindrome(char *a);
+int testPalindrome(char a[200]);
 
 int main()
 {
@@ -13,18 +13,20 @@ int main()
         printf("False\n"); 
 }
 
-int testPalindrome(char *a)
+int testPalindrome(char a[200])
 {
-    char b[200];
-    
-    if (isblank(a[0]))
+    int l = 0;
+    int h = strlen(a) - 1;
+    while (l < h) 
     {
-        /* code */
+        while (!isalnum(a[l]) && l<h) 
+            l++;
+        while (!isalnum(a[h]) && l<h)
+            h--;
+        if (tolower(a[l++]) != tolower(a[h--])) 
+        {
+            return 0;
+        }
     }
-    
-    
-    else
-    {
-        testPalindrome();
-    } 
+    return 1;
 }
