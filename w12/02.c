@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 int testPalindrome(char a[200]);
-
+// Right on local, WA on OJ
 int main()
 {
     char a[200];
