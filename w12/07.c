@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-// i know pblm at line 23, but how to fix it w/ proper var to add?
+//runtime error
 int main()
 {
     char a[200];
@@ -12,14 +12,14 @@ int main()
     fgets(a, sizeof(a), stdin);
     scanf("%s", b);
     searchPtr = strstr(a, b);
-    for (int i = 0; i < strlen(searchPtr); i++)
+    while (searchPtr+1 != NULL)
     {
         NsearchPtr = strstr(searchPtr, b);
         if (NsearchPtr != NULL)
         {
-
             printf("%s", NsearchPtr);
         }
-        searchPtr += strlen(b);
-    }  
+        char *sep = strtok(a, " ");
+        searchPtr += strlen(sep);
+    }
 }
