@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-// don't know what's wrong w/ it, jus never runs the program and i have to type in all the time
+// time limit exceeded
 int main()
 {
-    char a[5], b[200], c[200], d[200];
+    char a[200], b[200], c[200], d[200];
     int cntr = 0;
     fgets(a, sizeof(a), stdin);
     fgets(b, sizeof(b), stdin);
