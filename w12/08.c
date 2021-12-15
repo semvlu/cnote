@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 // order: article, noun, verb, preposition, article, noun
-// line 24, how to change the 1st alphabet of the 1st word to uppercase?
+// i tried 2 ways, one way: line 23~24, another: line 26 -> runtime error on OJ
 int main()
 {
     char *art[5] = {"the", "a", "one", "some", "any"};
@@ -20,8 +20,10 @@ int main()
         rprep = (rand() % 5);
         rart1 = (rand() % 5);
         rn1 = (rand() % 5);
-        cap = toupper(art[rart][0]);
-        memset(art[rart], cap, sizeof(art)[rart][0]);
+        //cap = toupper(art[rart][0]);
+        //memset(art[rart], cap, sizeof(art)[rart][0]);
+
+        //art[rart][0] = art[rart][0] - 32;
 
         printf("%s %s %s %s %s %s.\n", 
         art[rart], n[rn], v[rv], prep[rprep], art[rart1], n[rn1]);
