@@ -19,3 +19,8 @@ W8: Function
 W9: Array
 
 W10: Game design
+
+W11: Pointer N/A
+
+W12: Char & string
+
