@@ -27,6 +27,17 @@ int main()
         memset(list, 0, sizeof(list));
         scanf("%s", list);
     }
+
+    for (int i = 0; i < 100; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (local_address(book[j], book[i]) == 1)
+            {
+                printf("Machines %s and %s are on the same local network.", book[j].n, book[i].n);
+            }
+        }
+    }
 }
 
 addr scan_address(char z[27])
@@ -67,10 +78,10 @@ addr scan_address(char z[27])
     return p;
 }
 
-/*int local_address(addr _1, addr _2)
+int local_address(addr _1, addr _2)
 {
-    if ()
+    if (_1.a == _2.a && _1.b == _2.b)
         return 1;
     else
         return 0;
-}*/
+}
