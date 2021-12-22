@@ -18,14 +18,15 @@ int main()
     addr book[100];
     int cnt = 0;
     char list[27] = "";
-    scanf("%s", list);
-    while (list != "0.0.0.0 none" || cnt <= 100)
+    fgets(list, sizeof(list), stdin);
+    while (list != "0.0.0.0 none" || cnt < 100)
     {
+        printf("cnt:%d list:%s\n",cnt,list);
         book[cnt] = scan_address(list);
         cnt++;
-        printf("%d %d %d %d\t %s",book[0].a,book[0].b,book[0].c,book[0].d,book[0].n);
+        printf("%d %d %d %d\t %s\n",book[0].a,book[0].b,book[0].c,book[0].d,book[0].n);
         memset(list, 0, sizeof(list));
-        scanf("%s", list);
+        fgets(list, sizeof(list), stdin);
     }
 
     for (int i = 0; i < 100; i++)
