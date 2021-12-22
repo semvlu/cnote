@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-// get right on local, but WA on OJ
 typedef struct sci_not_t
 {
     // manti * 10^(exp) = (manti)e(exp)
@@ -77,7 +76,7 @@ double prod(sci a, sci b)
 
 double quo(sci a, sci b)
 {
-    double q = (a.m) * pow(10,a.e) / (b.m) * pow(10,b.e);
+    double q = ( (a.m) * pow(10,a.e) ) / ( (b.m) * pow(10,b.e) );
     return q;
 }
 
