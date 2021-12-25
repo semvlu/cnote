@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// don't know how to extract the name
+// scan_address is not applicable to append char n[11]
 typedef struct address_t
 {
     int a;
