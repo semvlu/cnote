@@ -10,21 +10,21 @@ int main()
     om = fopen("oldmast.txt", "r");
     nm = fopen("newmast.txt", "w");
 
-    int n_t[8], n_m[5];
+    int n_t[8], n_m[8];
     char fname[30],fname1[30],fname2[30],fname3[30],fname4[30],fname5[30],fname6[30];
     char lname[30],lname1[30],lname2[30],lname3[30],lname4[30],lname5[30],lname6[30];
-    float trans[8], cost[5], end[8] = {0.0};
+    double trans[8], cost[5], end[8] = {0.0};
     int n , till;
     
-    fscanf(t, "%d%s%s%f", &n_t[0], fname, lname, &trans[0]);
-    fscanf(t, "%d%s%s%f", &n_t[1], fname1, lname1, &trans[1]);
-    fscanf(t, "%d%s%s%f", &n_t[2], fname2, lname2, &trans[2]);
-    fscanf(t, "%d%s%s%f", &n_t[3], fname3, lname3, &trans[3]);
-    fscanf(t, "%d%s%s%f", &n_t[4], fname4, lname4, &trans[4]);
-    fscanf(t, "%d%s%s%f", &n_t[5], fname5, lname5, &trans[5]);
-    fscanf(t, "%d%s%s%f", &n_t[6], fname6, lname6, &trans[6]);
+    fscanf(t, "%d%s%s%lf", &n_t[0], fname, lname, &trans[0]);
+    fscanf(t, "%d%s%s%lf", &n_t[1], fname1, lname1, &trans[1]);
+    fscanf(t, "%d%s%s%lf", &n_t[2], fname2, lname2, &trans[2]);
+    fscanf(t, "%d%s%s%lf", &n_t[3], fname3, lname3, &trans[3]);
+    fscanf(t, "%d%s%s%lf", &n_t[4], fname4, lname4, &trans[4]);
+    fscanf(t, "%d%s%s%lf", &n_t[5], fname5, lname5, &trans[5]);
+    fscanf(t, "%d%s%s%lf", &n_t[6], fname6, lname6, &trans[6]);
     for (int i = 0; i < 3; i++)
-        fscanf(om, "%d %f", &n_m[i], &cost[i]);
+        fscanf(om, "%d %lf", &n_m[i], &cost[i]);
 
     int a = 0, b = 1;
     while (a < 7) // add trans w/ same acco#
@@ -51,29 +51,90 @@ int main()
         }
         else
             a++; 
-    }
-    for (int i = 0; i < 3; i++)
+    } // end[3]= 300, end[5]= 700 
+
+    for (int i = 0; i < 6; i++) 
     {
-        for (int j = 0; j < 7; j++)
+        for (int j = 0; j < 3; j++)
         {
-            if (n_m[i] == n_t[j] && n_t[j] != n_t[j-1])
+            if (end[i] == 0.0 && end[i-1] != 0.0 && n_m[j] == n_t[i]) // old single
             {
-                end[j] = cost[i] + trans[j];
+                end[i] += cost[j] + trans[i];
+                switch (i)
+                {
+                case 0:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, end[i]);
+                    break;
+                case 1:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, end[i]);
+                    break;
+                case 2:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, end[i]);
+                    break;
+                case 3:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, end[i]);
+                    break;
+                case 5:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, end[i]);
+                    break;
+                default:
+                    break;
+                }
+                break;
             }
-            else if (n_m[i] == n_t[j] && n_t[j] == n_t[j-1])
+            else if (end[i] != 0.0 && end[i+1] == 0.0 && n_m[j] == n_t[i]) // old multi
             {
-                end[j-1] += cost[i];
-            }    
-        }  
+                end[i] += cost[j];
+                switch (i)
+                {
+                case 0:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, trans[i+1]);
+                    break;
+                case 1:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, trans[i+1]);
+                    break;
+                case 2:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, trans[i+1]);
+                    break;
+                case 3:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, trans[i+1]);
+                    break;
+                case 5:
+                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, trans[i+1]);
+                    break;
+                default:
+                    break;
+                }
+                break;
+            }
+            else if (end[i] == 0.0 && end[i-1] != 0.0 && n_m[j] != n_t[i] &&
+            n_m[j+1] != n_t[i] && n_m[j+2] != n_t[i]) // new single
+            {
+                end[i] += trans[i];
+                printf("Unmatched transaction record for account number %d\n", n_t[i]);
+                break;
+            }
+            else if (end[i] != 0.0 && end[i+1] == 0.0 && n_m[j] != n_t[i] &&
+            n_m[j+1] != n_t[i] && n_m[j+2] != n_t[i]) // new multi
+            {
+                printf("Unmatched transaction record for account number %d\n", n_t[i]);
+                printf("Unmatched transaction record for account number %d\n", n_t[i]);
+                break;
+            } 
+        }
     }
     
-    fprintf(nm, "%d %s %s %.2f\n", n_t[0], fname, lname, end[0]);
-    fprintf(nm, "%d %s %s %.2f\n", n_t[1], fname1, lname1, end[1]);
-    fprintf(nm, "%d %s %s %.2f\n", n_t[2], fname2, lname2, end[2]);
-    fprintf(nm, "%d %s %s %.2f\n", n_t[3], fname3, lname3, end[3]);
-    fprintf(nm, "%d %s %s %.2f\n", n_t[4], fname4, lname4, end[4]);
-    fprintf(nm, "%d %s %s %.2f\n", n_t[5], fname5, lname5, end[5]);
-
+    fprintf(nm, "%d %s %s %.2lf\n", n_t[0], fname, lname, end[0]);
+    fprintf(nm, "%d %s %s %.2lf\n", n_t[1], fname1, lname1, end[1]);
+    fprintf(nm, "%d %s %s %.2lf\n", n_t[2], fname2, lname2, end[2]);
+    fprintf(nm, "%d %s %s %.2lf\n", n_t[3], fname3, lname3, end[3]);
+    fprintf(nm, "%d %s %s %.2lf\n", n_t[5], fname5, lname5, end[5]);
+    
     fclose(t);
     fclose(om);
     fclose(nm);
