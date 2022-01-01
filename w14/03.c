@@ -88,24 +88,24 @@ int main()
                 switch (i)
                 {
                 case 0:
-                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, trans[i]);
-                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, trans[i+1]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, cost[j]+trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname, lname, end[i]);
                     break;
                 case 1:
-                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, trans[i]);
-                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, trans[i+1]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, cost[j]+trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname1, lname1, end[i]);
                     break;
                 case 2:
-                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, trans[i]);
-                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, trans[i+1]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, cost[j]+trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname2, lname2, end[i]);
                     break;
                 case 3:
-                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, trans[i]);
-                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, trans[i+1]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, cost[j]+trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname3, lname3, end[i]);
                     break;
                 case 5:
-                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, trans[i]);
-                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, trans[i+1]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, cost[j]+trans[i]);
+                    printf("%d %s %s %.2lf\n", n_t[i], fname5, lname5, end[i]);
                     break;
                 default:
                     break;
