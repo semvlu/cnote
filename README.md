@@ -27,3 +27,5 @@ W12: Char & string
 W13: Char & string, struct
 
 W14: File processing
+
+W15: (Double) linked list, stack, queue
