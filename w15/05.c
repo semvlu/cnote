@@ -4,13 +4,13 @@
 
 struct Stacks
 {
-    char *data;
+    char data;
     struct Stacks *nxtPtr;
 };
 typedef struct Stacks StackNode;
 typedef StackNode *StackNodePtr;
 
-void push(StackNodePtr *top, char *info);
+void push(StackNodePtr *top, char info);
 void printListBackward(StackNodePtr c);
 
 int main()
@@ -18,22 +18,18 @@ int main()
     StackNodePtr stackPtr = NULL;
     char a[200];
     gets(a);
-    char *aPtr = strtok(a, " ");
-    while (aPtr != NULL)
-    {
-        aPtr = strtok(NULL, " ");
-        push(&stackPtr, aPtr);
-    }
+    for (int i = 0; i < strlen(a); i++)
+        push(&stackPtr, a[i]);
     printListBackward(stackPtr);
 }
 
-void push(StackNodePtr *top, char *info)
+void push(StackNodePtr *top, char info)
 {
     StackNodePtr nPtr = malloc(sizeof(StackNode));
     //insert the node at stack top
     if(nPtr != NULL)
     {
-        strcat(nPtr->data, info);
+        nPtr->data = info;
         nPtr->nxtPtr = *top;
         *top = nPtr;
     }
@@ -41,8 +37,10 @@ void push(StackNodePtr *top, char *info)
 
 void printListBackward(StackNodePtr c)
 {
-    if (c == NULL)
-        return;
-    printListBackward(c->nxtPtr);
-    printf("%s ", c->data);
+    while (c != NULL)
+    {
+        printf("%c", c->data);
+        c = c->nxtPtr;
+    }
+    puts("");   
 }
